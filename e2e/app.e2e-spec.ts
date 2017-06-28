@@ -1,14 +1,16 @@
-import { Angular41Page } from './app.po';
+import { MyFirstAngular2Page } from './app.po';
 
-describe('angular41 App', () => {
-  let page: Angular41Page;
+describe('my-first-angular2 App', () => {
+  let page: MyFirstAngular2Page;
 
   beforeEach(() => {
-    page = new Angular41Page();
+    page = new MyFirstAngular2Page();
   });
 
-  it('should display welcome message', () => {
+  it('should display welcome message', done => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!!');
+    page.getParagraphText()
+      .then(msg => expect(msg).toEqual('Welcome to app!!'))
+      .then(done, done.fail);
   });
 });
